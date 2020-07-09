@@ -13,10 +13,11 @@
       <div class="app__list-box">
         <!-- Populate list with items from array -->
         <div v-for="(item, index) in items" class="app__list-box__item">
-          <p :class="item.obj" @click="isDoneToggle(index)">
-            {{index + 1}} {{item.stored}}
+          <span class="list-box__item__num">{{index + 1}}</span>
+          <p class="list-box__item_text" :class="item.obj" @click="isDoneToggle(index)">
+            {{item.stored}}
           </p>
-          <!-- Remove button for individual list item -->
+          <!-- "Delete" button for individual list item -->
           <button @click="removeItem(index)" class="button">Delete</button>
         </div>
       </div>

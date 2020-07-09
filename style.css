@@ -17,58 +17,64 @@ h1 {
     font-family: sans-serif;
     text-align: center;
 }
-p {
+
+/* CSS for list item */
+.app__list-box__item {
+    max-width: 600px;
+    display: flex;
+    justify-items: center;
+    border-bottom: 1px solid black;
+    margin-top: 10px;
+}
+.list-box__item__num {
+    display: inline-block;
+    font-family: sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-right: .3rem;
+}
+.list-box__item_text {
+    /* width: 100%; */
+    flex-grow: 0;
     display: inline;
     cursor: pointer;
     font-family: sans-serif;
     color: black;
 }
-.app__list-box__item {
-    border-bottom: 1px solid black;
-    margin-top: 10px;
+.app__list-box__item .button {
+    /* justify-self: flex-end; */
 }
 .taskIsDone {
     position: relative;
+    text-decoration-line: line-through;
 }
-.taskIsDone::after {
-    content: "";
-    position: absolute;
-    top: 45%;
-    left: 0;
-    width: 100%;
-    height: .2rem;
-    background-color: black;
 
-}
+
+/* CSS for Input elements from the bottom  */
 .app__input-box {
     margin-top: 10px;
     display: flex;
     width: 100%;
     justify-content: space-between;
 }
+/* height = font-size + (border:focus - border) --> fix twitching when focused */
 input {
     width: 100%;
+    height: calc(1rem + 2px) ; 
     min-width: 0;
-    max-width: inherit;
     border: none;
     border-bottom: solid 1px black;
     font-family: sans-serif;
     font-size: 1rem;
     font-weight: bold;
-    /* position: relative; */
+    position: relative;
 }
 input:focus{
+    height: 1rem;
     outline: none;
     border-bottom: solid 3px black;
 }
-input::after{
-    content: "HELLO";
-    color: black;
-    top: 0;
-    height: 10px;
-    /* visibility: hidden; */
-    border-bottom: solid 2px black;
-}
+
 .button{
     flex-shrink: 0;
     cursor: pointer;
