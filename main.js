@@ -72,5 +72,12 @@ var app = new Vue({
         }
       }
     },
+    buttonState: function(){
+      if (this.doneCounter == 0) {
+        return true
+      }else{
+        return false
+      }
+    }
   },
 });

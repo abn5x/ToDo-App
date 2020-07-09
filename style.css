@@ -20,7 +20,7 @@ h1 {
 
 /* CSS for list item */
 .app__list-box__item {
-    max-width: 600px;
+    width: 600px;
     display: flex;
     justify-items: center;
     border-bottom: 1px solid black;
@@ -34,15 +34,16 @@ h1 {
     margin-right: .3rem;
 }
 .list-box__item_text {
-    /* width: 100%; */
+    width: 100%;
+    min-width: 1%;
+    overflow-wrap: break-word;
     flex-grow: 0;
-    display: inline;
     cursor: pointer;
     font-family: sans-serif;
     color: black;
 }
 .app__list-box__item .button {
-    /* justify-self: flex-end; */
+    justify-self: flex-end;
 }
 .taskIsDone {
     position: relative;
@@ -98,9 +99,8 @@ input:focus{
     color: rgb(233, 62, 0);
     align-self: flex-end;
 }
-.isDisabled{
-    color: rgba(233, 62, 0, 0.2)
-}
-.isDisabled:hover{
+.isDisabled, .isDisabled:hover, .isDisabled:active{
+    cursor: default;
+    color: rgba(233, 62, 0, 0.2);
     text-decoration-line: none;
 }

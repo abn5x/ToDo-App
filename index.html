@@ -39,7 +39,7 @@
         @click="clearCompleted"
         class="button button--remove"
         v-bind:class="activeObjTask"
-        :disabled="activeObjTask"
+        :disabled="buttonState"
       >
         Clear Completed Tasks
       </button>
