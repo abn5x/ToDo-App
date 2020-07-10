@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css" />
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  </head>
-  <body>
-    <div id="app">
-      <h1>ToDo App</h1>
-      <div class="app__list-box">
-        <!-- Populate list with items from array -->
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <h1>ToDo App</h1>
+    <div class="app__list-box">
+      <!-- Populate list with items from array -->
+      <div v-if="items.length">
         <div v-for="(item, index) in items" class="app__list-box__item">
           <span class="list-box__item__num">{{index + 1}}</span>
           <p class="list-box__item_text" :class="item.obj" @click="isDoneToggle(index)">
@@ -21,39 +24,28 @@
           <button @click="removeItem(index)" class="button">Delete</button>
         </div>
       </div>
-      <!-- Input form using v-model to pass input to data : message -->
-      <div class="app__input-box">
-        <!-- The v-model input form, with event for Enter to trigger "add" function -->
-        <input
-          type="text"
-          v-model="message"
-          @keyup.enter="add"
-          placeholder="Type your task here (press ENTER to add it)"
-        />
-        <!-- Button to trigger "add" function -->
-        <button v-on:click="add" class="button">+ Add to List</button>
-      </div>
-      <!-- Button to clear completed list items, changes to inactive appearence when
-      list items == 0 and no completed tasks -->
-      <button
-        @click="clearCompleted"
-        class="button button--remove"
-        v-bind:class="activeObjTask"
-        :disabled="buttonState"
-      >
-        Clear Completed Tasks
-      </button>
-      <!-- Button to clear all list items, changes to inactive appearence when
-      list items == 0  -->
-      <button
-        @click="clear"
-        class="button button--remove"
-        v-bind:class="activeObj"
-        :disabled="activeObj"
-      >
-        Clear all Tasks
-      </button>
+      <p v-else class="list-box__item_text">You have no tasks!</p>
     </div>
-    <script src="main.js"></script>
-  </body>
+    <!-- Input form using v-model to pass input to data : message -->
+    <div class="app__input-box">
+      <!-- The v-model input form, with event for Enter to trigger "add" function -->
+      <input type="text" v-model="message" @keyup.enter="add"
+        placeholder="Type your task here (press ENTER to add it)" />
+      <!-- Button to trigger "add" function -->
+      <button v-on:click="add" class="button">+ Add to List</button>
+    </div>
+    <!-- Button to clear completed list items, changes to inactive appearence when
+      list items == 0 and no completed tasks -->
+    <button @click="clearCompleted" class="button button--remove" v-bind:class="activeObjTask" :disabled="buttonState">
+      Clear Completed Tasks
+    </button>
+    <!-- Button to clear all list items, changes to inactive appearence when
+      list items == 0  -->
+    <button @click="clear" class="button button--remove" v-bind:class="activeObj" :disabled="activeObj">
+      Clear all Tasks
+    </button>
+  </div>
+  <script src="main.js"></script>
+</body>
+
 </html>
