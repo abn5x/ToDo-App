@@ -116,6 +116,9 @@ input:focus::placeholder{
 .button:active {
     color: red;
 }
+.isAddDisabled{
+    color: lightgray;
+}
 .button--remove {
     margin-top: 10px;
     color: rgb(233, 62, 0);

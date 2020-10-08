@@ -32,16 +32,16 @@
       <input type="text" v-model="message" @keyup.enter="add"
         placeholder="Type your task here (press ENTER to add it)" />
       <!-- Button to trigger "add" function -->
-      <button v-on:click="add" class="button">+ Add to List</button>
+      <button v-on:click="add" class="button" :class="addState" :disabled="addButtonState">+ Add to List</button>
     </div>
     <!-- Button to clear completed list items, changes to inactive appearence when
       list items == 0 and no completed tasks -->
-    <button @click="clearCompleted" class="button button--remove" v-bind:class="activeObjTask" :disabled="buttonState">
+    <button @click="clearCompleted" class="button button--remove" :class="activeObjTask" :disabled="buttonState">
       Clear Completed Tasks
     </button>
     <!-- Button to clear all list items, changes to inactive appearence when
       list items == 0  -->
-    <button @click="clear" class="button button--remove" v-bind:class="activeObj" :disabled="activeObj">
+    <button @click="clear" class="button button--remove" :class="activeObj" :disabled="activeObj">
       Clear all Tasks
     </button>
   </div>

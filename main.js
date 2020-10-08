@@ -13,13 +13,15 @@ var app = new Vue({
   methods: {
     // Method to add the string from input to items array
     add: function () {
-      this.items.push({
-        obj: {
-          taskIsDone: false,
-        },
-        stored: this.message,
-      });
-      this.message = "";
+      if (message != ""){
+        this.items.push({
+          obj: {
+            taskIsDone: false,
+          },
+          stored: this.message,
+        });
+        this.message = "";
+      }
     },
     // Method to clear all the items in the items array
     clear: function () {
@@ -77,6 +79,24 @@ var app = new Vue({
         return true
       }else{
         return false
+      }
+    },
+    addButtonState: function(){
+      if (this.message == ""){
+        return true
+      }else{
+        return false
+      }
+    },
+    addState: function(){
+      if (this.message == ""){
+        return {
+          isAddDisabled: true
+        };
+      }else{
+        return {
+          isAddDisabled: false
+        }
       }
     }
   },
